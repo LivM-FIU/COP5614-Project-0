@@ -1,0 +1,16 @@
+Project 0 Report - Trinity Socorro - 6186530
+a. My experience installing Nachos was fairly simple. Through a vscode extension (Remote SSH), 
+   I was able to connect to my wolf.cs.fiu.edu virtual machine. Using a wget command, I downloaded the nachos-3.4 zip, 
+   which I then unzipped and proceeded to compile nachos. 
+
+b. The tests performed as expected. I used the TA's instructional video as a visual guide to ensure that the single step test 
+   produced the expected outcomes, which it did as it hung after 22 ticks and executed one step at a time. 
+   The first test also ran as expected, as it also hung after 22 ticks.
+
+c. The purpose of the Threads class is to handle the thread objects and their lifecycle. Within the threads folder, there is 
+   thread.h which declares the threads class, thread.cc is the implementation, and the switch files handle the switching 
+   between threads. Focusing on the thread.cc file, there are four methods that contribute to thread management. These are
+   Fork, Finish, Yield, and Sleep. When called, the Fork method creates a new thread to execute a procedure. Finish cleans
+   up once a thread finishes its task. Yield allows for CPU to focus on a different thread that is ready to run. Finally, Sleep
+   blocks the thread and removes it from the ready queue. These methods, along with the rest of the Threads class is vital for 
+   Nachos to run effectively. 
