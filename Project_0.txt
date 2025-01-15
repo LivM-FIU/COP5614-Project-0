@@ -1,0 +1,9 @@
+a) Experience Installing Nachos
+Installing Nachos involved setting up the project on the wolf server of FIU, based on Linux environment. The primary challenges included resolving outdated dependencies such as bool.h and correcting paths to system headers like stdarg.h. After downloading the Nachos source code and extracting it, I successfully compiled the project using make in the code directory. Ensuring proper permissions and adjusting legacy code for compatibility were crucial steps in the process.
+
+b) Experience with the Tests
+I ran the Threads demo in the threads directory, which successfully demonstrated thread scheduling. The output showed two threads (thread 0 and thread 1) looping five times, followed by system statistics and a clean shutdown. I also ran the User Program Demo (halt) and tested single-step execution mode, both of which worked as expected, verifying Nachos’ ability to execute user-level programs.
+
+
+c) Description of the Thread Class
+The Thread class in Nachos is responsible for managing thread creation, destruction, and execution. It handles key operations such as context switching, maintaining the thread state (e.g., running, ready, or blocked), and managing stacks for each thread. The class also integrates with the scheduler to implement multitasking by allowing multiple threads to share CPU resources.
