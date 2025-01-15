@@ -1,0 +1,61 @@
+Project 0 Report
+Shamim Golafshan:
+a) Experience Installing Nachos:
+   Installing Nachos involved setting up the project on the wolf server of FIU, based on Linux environment. The primary challenges 
+   included resolving outdated dependencies such as bool.h and correcting paths to system headers like stdarg.h. After downloading 
+   the Nachos source code and extracting it, I successfully compiled the project using make in the code directory. Ensuring proper 
+   permissions and adjusting legacy code for compatibility were crucial steps in the process.
+
+b) Experience with the Tests:
+   I ran the Threads demo in the threads directory, which successfully demonstrated thread scheduling. The output showed two threads 
+   (thread 0 and thread 1) looping five times, followed by system statistics and a clean shutdown. I also ran the User Program Demo 
+   (halt) and tested single-step execution mode, both of which worked as expected, verifying NachosÕ ability to execute user-level programs.
+
+c) Description of the Thread Class:
+   The Thread class in Nachos is responsible for managing thread creation, destruction, and execution. It handles key operations such 
+   as context switching, maintaining the thread state (e.g., running, ready, or blocked), and managing stacks for each thread. The class 
+   also integrates with the scheduler to implement multitasking by allowing multiple threads to share CPU resources.
+
+
+Livan Miranda Labrada:
+a) Experience Installing Nachos (Platform Details):
+   I installed Nachos 3.4 on the FIU Ocelot server, which runs a Linux environment. After connecting via SSH, I unpacked the tar archive 
+   using tar -xzf and then confirmed that the necessary tools—particularly make and gcc—were installed. I also ensured that my LD_LIBRARY_PATH 
+   environment variable included /usr/local/lib to avoid library-related issues. Compiling Nachos in the nachos-3.4/code directory produced 
+   the nachos binary with no errors. The directory structure is quite clear once you identify important subdirectories: threads 
+   (for kernel-level threading), userprog (for running user-mode programs under Nachos), and test (which contains sample programs like halt).
+
+b) Experience with the Tests:
+   I ran ./nachos in the threads subdirectory and observed multiple loop messages, confirming thread switching was correct. Then, I tested 
+   user programs by executing ./nachos -x test/halt, which displayed “Machine halting!” and printed system stats. Using the -s (single-step) 
+   flag provided detailed instruction-level debugging. All tests worked as expected with no runtime errors.
+
+c) Description of the Thread Class in Nachos:
+   The Thread class in Nachos encapsulates a kernel-level thread, maintaining its stack, CPU register state, and status 
+   (which can be JUST_CREATED, RUNNING, READY, or BLOCKED). It provides core methods like Fork, which sets up and runs a specified function in a 
+   new thread; Yield, which voluntarily gives up the CPU to let other ready threads run; Sleep, which blocks the thread and lets the scheduler pick 
+   a different one; and Finish, signaling that the thread has completed execution. Internally, each Thread tracks its machineState (for saving registers 
+   during context switches) and allocates its own stack space to store local variables and function call frames. If running in user mode, the thread 
+   also has a separate set of userRegisters and points to an AddrSpace that represents the program’s virtual memory. This structure allows multiple threads 
+   to run concurrently under Nachos, managing both kernel-only threads and user-level processes.
+
+
+Trinity Socorro:
+a) Nachos Download Experience:
+   My experience installing Nachos was fairly simple. Through a vscode extension (Remote SSH), 
+   I was able to connect to my wolf.cs.fiu.edu virtual machine. Using a wget command, I downloaded the nachos-3.4 zip, 
+   which I then unzipped and proceeded to compile nachos. 
+
+b) Running Test Experience: 
+   The tests performed as expected. I used the TA's instructional video as a visual guide to ensure that the single step test 
+   produced the expected outcomes, which it did as it hung after 22 ticks and executed one step at a time. 
+   The first test also ran as expected, as it also hung after 22 ticks.
+
+c) Nachos Thread Class Description:
+   The purpose of the Threads class is to handle the thread objects and their lifecycle. Within the threads folder, there is 
+   thread.h which declares the threads class, thread.cc is the implementation, and the switch files handle the switching 
+   between threads. Focusing on the thread.cc file, there are four methods that contribute to thread management. These are
+   Fork, Finish, Yield, and Sleep. When called, the Fork method creates a new thread to execute a procedure. Finish cleans
+   up once a thread finishes its task. Yield allows for CPU to focus on a different thread that is ready to run. Finally, Sleep
+   blocks the thread and removes it from the ready queue. These methods, along with the rest of the Threads class is vital for 
+   Nachos to run effectively. 
