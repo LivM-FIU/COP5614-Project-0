@@ -1,20 +1,24 @@
 Project 0 Report
 Shamim Golafshan:
 a) Experience Installing Nachos:
-   Installing Nachos involved setting up the project on the wolf server of FIU, based on Linux environment. The primary challenges 
-   included resolving outdated dependencies such as bool.h and correcting paths to system headers like stdarg.h. After downloading 
-   the Nachos source code and extracting it, I successfully compiled the project using make in the code directory. Ensuring proper 
-   permissions and adjusting legacy code for compatibility were crucial steps in the process.
+   I used SSH extension on VS code to connect to the wolf server of FIU. Then, downloaded the Nachos source code from the link on canvas. 
+   During installation, I faced with several issues like outdated bool.h dependency and incorrect paths to system headers (like, stdarg.h). 
+   I edited utility.h file to remove the bool.h dependency. Also, I checked the environment variables like LD_LIBRARY_PATH were correctly set 
+   and verified that make and gcc were available on the server. After that, I re-extracted the source code and then using make the project was 
+   compiled.
 
 b) Experience with the Tests:
-   I ran the Threads demo in the threads directory, which successfully demonstrated thread scheduling. The output showed two threads 
-   (thread 0 and thread 1) looping five times, followed by system statistics and a clean shutdown. I also ran the User Program Demo 
-   (halt) and tested single-step execution mode, both of which worked as expected, verifying NachosÕ ability to execute user-level programs.
+  For testing, I ran the Threads Demo in the threads directory. the output of this test showed two threads (thread 0 and thread 1) which were 
+   looping 5 times each. then I ran the User Program Demo using halt program in the test directory. this test showed me "Machine halting!". I also 
+   used the -s flag to run nachos in single-step mode. Each test provide expected results.
 
 c) Description of the Thread Class:
-   The Thread class in Nachos is responsible for managing thread creation, destruction, and execution. It handles key operations such 
-   as context switching, maintaining the thread state (e.g., running, ready, or blocked), and managing stacks for each thread. The class 
-   also integrates with the scheduler to implement multitasking by allowing multiple threads to share CPU resources.
+   The thread class, manages the life cycle of kernel-level threads, which also enable mutitasking. this class can track thread's state, such as 
+   JUST_CREATED, RUNNING, READY, or BLOCKED which works with the scheduler to switch between threads as needed. this class includes methods like Fork, 
+   Yield, Sleep, Finish. Fork can creates a new thread and assigns it a function to execute, Yield allows the CPU to be used by another thread, Sleep 
+   pauses the thread and removes it from the ready queue and Finish cleans up resources once a thread has completed its task. Each of the thread maintains 
+   own stack and saves its machine state to facilitate context switching. In user mode, the thread also manages user registers and an AddrSpace for 
+   virtual memory.
 
 
 Livan Miranda Labrada:
